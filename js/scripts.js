@@ -15,6 +15,7 @@ $(document).ready(function() {
     event.preventDefault();
     let user = $('#input').val();
     let out = puzzle(user);
+    $('form').hide();
     $('.output').text(out);
 
   });
