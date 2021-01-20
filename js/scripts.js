@@ -1,20 +1,21 @@
 function puzzle(user) {
+  let sub = [];
   for (let i = 0; i < user.length; i++) {
-    if (user[i] === 'o' || user[i] === 'e' || user[i] === 'u' || user[i] === 'i' || user[i] === 'a') {
-      user[i] = '-';
+    if (user[i].toLowerCase() === 'o' || user[i].toLowerCase() === 'e' || user[i].toLowerCase() === 'u' || user[i].toLowerCase() === 'i' || user[i].toLowerCase() === 'a') {
+      sub.push('-')
     } else {
-      continue;
+      sub.push(user[i]);
     }
-    return user;
   }
+  return sub.join("");
 }
 
 $(document).ready(function() {
   $('form').submit(function() {
     event.preventDefault();
-    let user = $('#input').val().toLowerCase();
+    let user = $('#input').val();
     let out = puzzle(user);
-    $('output').text(out);
+    $('.output').text(out);
 
   });
 });
